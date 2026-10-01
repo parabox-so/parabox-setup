@@ -1,0 +1,13 @@
+{
+  "name": "@parabox/setup",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Parabox Setup & Spec Hub - Six Documents Before Vibe Coding with Evidence Tracking",
+  "scripts": {
+    "new-product": "node scripts/new_product.js",
+    "check-product": "node scripts/check_consistency.js"
+  },
+  "keywords": ["parabox", "spec-driven", "idea-scientist", "agent-first", "prd", "trd", "evidence"],
+  "author": "Parabox",
+  "license": "MIT"
+}
