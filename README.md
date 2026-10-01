@@ -1,37 +1,91 @@
 # Parabox Setup & Spec Hub
 
-> **The Product Specification, Architecture & Evidence Mission Control for Parabox.**  
+> **The Product Specification, Architecture & Autopilot Mission Control for Parabox.**  
 > Powered by the **"Six Documents Before Vibe Coding"** framework and the **Parabox Method**.
 
 ---
 
-## 🏗 Architecture & Overview
+## ⚡ The Vision: Human Idea ➔ AI Autopilot
 
-This repository is where founders, idea scientists, and product teams define, research, and plan product ideas before building them with AI coding agents.
+In Parabox, **the human only spends 3 minutes writing the product idea and UI vibe**.  
+The AI Agent takes over and autonomously handles **100% of the research, architecture, planning, backend coding, and frontend coding**.
+
+```mermaid
+flowchart TD
+    subgraph Human["👤 1. Human Input (3 Minutes)"]
+        H1["Write <b>01-prd.md</b> (The Idea, Problem, User)"]
+        H2["Write <b>04-design-brief.md</b> (Vibe, Style, Colors)"]
+    end
+
+    subgraph Autopilot["🤖 2. AI Autopilot (Fully Autonomous)"]
+        A1["🕵️ <b>Market Research:</b> Generates <code>evidence/research/</code>"]
+        A2["📐 <b>Technical Blueprint:</b> Generates <code>02-trd.md</code>"]
+        A3["🗺️ <b>User Journeys:</b> Generates <code>03-app-flow.md</code>"]
+        A4["🗄️ <b>Database Schema:</b> Generates <code>05-backend-schema.md</code>"]
+        A5["📋 <b>Milestone Plan:</b> Generates <code>06-implementation-plan.md</code>"]
+    end
+
+    subgraph Build["⚡ 3. Autonomous Code Generation"]
+        B1["Builds Backend in <code>parabox-backend-starter</code> (FastAPI, DB, Auth, Stripe, MCP)"]
+        B2["Builds Frontend in <code>parabox-frontend-starter</code> (Next.js 15, Canvas, Realtime, shadcn)"]
+        B3["Runs tests and delivers live product!"]
+    end
+
+    Human --> Autopilot --> Build
+```
+
+---
+
+## 🚀 How to Build a Product in 3 Steps
+
+### 1. Scaffold a New Product Folder
+```bash
+pnpm new-product NAME=my-app
+```
+* Generates `products/my-app/` with clean templates for the 6 documents and `evidence/` subfolders.
+
+### 2. Fill in the 2 Human Input Files
+Open `products/my-app/` and spend 3 minutes filling in:
+* **`01-prd.md`**: Your product concept, core problem, and 3 must-have features.
+* **`04-design-brief.md`**: Your visual style, colors, and layout vibe.
+
+### 3. Prompt Your AI Assistant to Run Autopilot
+Tell any AI coding assistant (Antigravity, Cursor, Claude Code):
+> *"Run `product-autopilot` on `products/my-app`."*
+
+**The AI does everything else:**
+1. Researches top competitors, pricing, and user complaints into `evidence/research/`.
+2. Generates the TRD, App Flows, DB Schema, and Milestones.
+3. Builds and tests the backend in `parabox-backend-starter`.
+4. Builds and tests the frontend in `parabox-frontend-starter`.
+5. Hands you the finished, tested product ready to run!
+
+---
+
+## 📂 Repository Structure
 
 ```
 parabox-setup/
-├── products/                              # 📂 Product Specifications & Portfolios
-│   ├── linear-escalator/                  # Reference example product
-│   │   ├── 01-prd.md                      # 1. Product Requirements Document
-│   │   ├── 02-trd.md                      # 2. Technical Requirements Document
-│   │   ├── 03-app-flow.md                 # 3. App Flow & User Journeys
-│   │   ├── 04-design-brief.md             # 4. UI/UX Brief & shadcn Tokens
-│   │   ├── 05-backend-schema.md           # 5. Database Schema & Tenant Rules
-│   │   ├── 06-implementation-plan.md     # 6. Ordered Milestone Build Plan
-│   │   │
-│   │   └── evidence/                      # 🧪 Real-World Evidence & Proof
-│   │       ├── interviews/                # Customer discovery call transcripts & Mom-Test notes
-│   │       └── research/                  # Competitor teardown matrices & pricing benchmarks
+├── products/                              # 📂 Product Portfolios
+│   ├── linear-escalator/                  # Reference example
+│   │   ├── 01-prd.md                      # 👤 Human: Product pitch & problem
+│   │   ├── 02-trd.md                      # 🤖 AI: Technical primitives mapping
+│   │   ├── 03-app-flow.md                 # 🤖 AI: Screens & user journeys
+│   │   ├── 04-design-brief.md             # 👤 Human: Visual vibe & shadcn styling
+│   │   ├── 05-backend-schema.md           # 🤖 AI: DB models & tenant isolation
+│   │   ├── 06-implementation-plan.md     # 🤖 AI: Milestone build sequence
+│   │   └── evidence/                      # 🧪 Market research & customer discovery
+│   │       ├── research/                  # Competitor teardown & market gaps
+│   │       └── interviews/                # Customer discovery call transcripts
 │   │
 │   └── _template/                         # Copyable starter template
 │
-├── templates/                             # 📄 Master 6-Doc & Evidence Templates
-├── skills/                                # 🧠 AI Product Architect Skills
-│   ├── interview-to-six-docs/             # Interactive interview to generate all 6 docs
-│   ├── consistency-checker/               # Flags contradictions across PRD, TRD, and Schema
-│   ├── evidence-collector/                # Logs interview notes and competitor research
-│   └── dispatch-to-codebase/              # Dispatches the build to backend & frontend repos
+├── skills/                                # 🧠 AI Autopilot & Architect Skills
+│   ├── product-autopilot/SKILL.md         # 🚀 Master end-to-end autonomous builder
+│   ├── interview-to-six-docs/SKILL.md     # Interactive discovery interviewer
+│   ├── consistency-checker/SKILL.md       # Flags contradictions across docs
+│   ├── evidence-collector/SKILL.md        # Formats research & interview notes
+│   └── dispatch-to-codebase/SKILL.md      # Codebase build dispatcher
 │
 └── scripts/
     ├── new_product.js                     # `pnpm new-product NAME=<name>`
@@ -40,32 +94,7 @@ parabox-setup/
 
 ---
 
-## 🚀 Quick Start: Creating a New Product
-
-### 1. Scaffold a New Product Folder (1 Command)
-```bash
-# Scaffolds products/my-app with all 6 documents + evidence structure
-pnpm new-product NAME=my-app
-```
-
-### 2. Fill in the 6 Documents (or Let AI Interview You)
-Ask any AI assistant (Antigravity, Cursor, Claude Code):
-> *"Activate the `interview-to-six-docs` skill and interview me to populate the 6 documents for `products/my-app`."*
-
-### 3. Verify Alignment & Consistency
-```bash
-# Checks that all 6 documents are complete and coherent
-pnpm check-product NAME=my-app
-```
-
-### 4. Build Automatically with Coding Agents
-Once verified, dispatch the build:
-- **Backend:** AI coding agent runs `make new-app NAME=my-app` in `parabox-backend-starter`.
-- **Frontend:** AI coding agent runs `pnpm new-app NAME=my-app` in `parabox-frontend-starter`.
-
----
-
-## 🏛️ Connected Repositories in the Parabox Org
-* 🎯 **Product Specs & Evidence:** [`parabox-setup`](https://github.com/parabox-so/parabox-setup) *(You are here)*
+## 🏛️ Connected Parabox Repositories
+* 🎯 **Product Specs & Autopilot:** [`parabox-setup`](https://github.com/parabox-so/parabox-setup) *(You are here)*
 * 🐍 **Backend Primitives:** [`parabox-backend-starter`](https://github.com/parabox-so/parabox-backend-starter)
 * ⚛️ **Frontend Primitives:** [`parabox-frontend-starter`](https://github.com/parabox-so/parabox-frontend-starter)
