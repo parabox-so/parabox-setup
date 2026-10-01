@@ -9,10 +9,13 @@ If your environment supports subagent tools (e.g. `invoke_subagent`):
   1. `market-researcher`: Competitor teardowns, pricing models, Reddit reviews -> `evidence/research/`
   2. `systems-architect`: 6 planning documents (PRD to Plan) -> `products/<name>/`
   3. `backend-builder`: FastAPI, SQLAlchemy models with `workspace_id`, Clerk, Stripe, MCP -> `parabox-backend-starter/apps/<name>/`
-  4. `frontend-builder`: Next.js 15, Hallmark design system, Canvas blocks, Realtime SSE -> `parabox-frontend-starter/apps/<name>/`
+  4. `frontend-builder`: Next.js 15, Canvas blocks, Realtime SSE. **MANDATORY:** Must call `view_file` on Hallmark `SKILL.md`, theme, and macrostructure before writing any UI files -> `parabox-frontend-starter/apps/<name>/`
   5. `qa-verifier`: Pytest, pnpm build, Playwright MCP browser testing & screenshots -> `evidence/screenshots/`
 
 ## ⚡ Non-Negotiable Core Rules:
 1. Zero manual terminal commands required from the human founder.
-2. Hallmark design craft (anti-slop, roman headings, honest copy).
+2. **MANDATORY Hallmark Anti-Slop Protocol (Hard Gate for ALL Frontend Code):**
+   - Must view `.agents/skills/hallmark/SKILL.md` + chosen macrostructure (`05-workbench.md` / `15-split-studio.md`) + chosen theme (`themes/cobalt.md` / `themes/hum.md`).
+   - Line 1 stamp required: `/* Hallmark · macrostructure: <name> · theme: <theme> · pre-emit critique: P5 H5 E5 S5 R5 V5 */`
+   - Hard Bans: No text gradients, no fake OS dots (`🔴 🟡 🟢`), no blueprint grid wallpapers (`.bg-grid`), no invented marketing stats, roman headings only.
 3. Strict `workspace_id` tenant isolation on all database models.
