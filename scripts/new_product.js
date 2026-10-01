@@ -32,11 +32,9 @@ if (fs.existsSync(targetDir)) {
 
 console.log(`🚀 Scaffolding product specification in products/${normalized}...`);
 
-// Create folder structure
+// Create folder structure (Interviews and Research)
 fs.mkdirSync(path.join(targetDir, 'evidence', 'interviews'), { recursive: true });
 fs.mkdirSync(path.join(targetDir, 'evidence', 'research'), { recursive: true });
-fs.mkdirSync(path.join(targetDir, 'evidence', 'benchmarks'), { recursive: true });
-fs.mkdirSync(path.join(targetDir, 'evidence', 'verifications'), { recursive: true });
 
 // Copy 6 core documents
 const coreDocs = [
@@ -63,8 +61,6 @@ for (const doc of coreDocs) {
 const evidenceTemplates = [
   { src: 'evidence/interviews/TEMPLATE.md', dest: 'evidence/interviews/discovery_01.md' },
   { src: 'evidence/research/TEMPLATE.md', dest: 'evidence/research/competitor_analysis.md' },
-  { src: 'evidence/benchmarks/TEMPLATE.md', dest: 'evidence/benchmarks/poc_benchmarks.md' },
-  { src: 'evidence/verifications/TEMPLATE.md', dest: 'evidence/verifications/release_report.md' },
 ];
 
 for (const item of evidenceTemplates) {
@@ -81,6 +77,6 @@ console.log(`\n✅ Product specification folder created at: products/${normalize
 console.log(`\n📄 Generated 6 Planning Documents:`);
 coreDocs.forEach(d => console.log(`   ├── ${d}`));
 console.log(`📂 Generated Evidence Structure:`);
-console.log(`   └── evidence/ (interviews, research, benchmarks, verifications)`);
+console.log(`   └── evidence/ (interviews & research)`);
 console.log(`\n👉 Next step: Fill out the 6 documents or ask an AI assistant to interview you.`);
 console.log(`👉 Run 'pnpm check-product NAME=${normalized}' to verify before coding.`);

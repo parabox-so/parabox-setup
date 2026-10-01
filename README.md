@@ -7,7 +7,7 @@
 
 ## 🏗 Architecture & Overview
 
-This repository is where founders, idea scientists, and product teams define, research, and verify product ideas before building them with AI coding agents.
+This repository is where founders, idea scientists, and product teams define, research, and plan product ideas before building them with AI coding agents.
 
 ```
 parabox-setup/
@@ -22,9 +22,7 @@ parabox-setup/
 │   │   │
 │   │   └── evidence/                      # 🧪 Real-World Evidence & Proof
 │   │       ├── interviews/                # Customer discovery call transcripts & Mom-Test notes
-│   │       ├── research/                  # Competitor teardown matrices & pricing benchmarks
-│   │       ├── benchmarks/                # Latency, throughput, and LLM token COGS
-│   │       └── verifications/             # Acceptance criteria run reports & proof logs
+│   │       └── research/                  # Competitor teardown matrices & pricing benchmarks
 │   │
 │   └── _template/                         # Copyable starter template
 │
@@ -32,7 +30,7 @@ parabox-setup/
 ├── skills/                                # 🧠 AI Product Architect Skills
 │   ├── interview-to-six-docs/             # Interactive interview to generate all 6 docs
 │   ├── consistency-checker/               # Flags contradictions across PRD, TRD, and Schema
-│   ├── evidence-collector/                # Logs interview notes, research, and benchmarks
+│   ├── evidence-collector/                # Logs interview notes and competitor research
 │   └── dispatch-to-codebase/              # Dispatches the build to backend & frontend repos
 │
 └── scripts/
@@ -50,7 +48,7 @@ parabox-setup/
 pnpm new-product NAME=my-app
 ```
 
-### 2. Fill in the 6 Documents (or Ask AI to Interview You)
+### 2. Fill in the 6 Documents (or Let AI Interview You)
 Ask any AI assistant (Antigravity, Cursor, Claude Code):
 > *"Activate the `interview-to-six-docs` skill and interview me to populate the 6 documents for `products/my-app`."*
 
@@ -64,7 +62,6 @@ pnpm check-product NAME=my-app
 Once verified, dispatch the build:
 - **Backend:** AI coding agent runs `make new-app NAME=my-app` in `parabox-backend-starter`.
 - **Frontend:** AI coding agent runs `pnpm new-app NAME=my-app` in `parabox-frontend-starter`.
-- **Evidence:** Record verification runs into `products/my-app/evidence/verifications/`.
 
 ---
 

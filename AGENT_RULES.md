@@ -19,14 +19,12 @@ Whenever working on a product in `products/<name>/`, ensure all 6 documents are 
 
 ## 🧪 Evidence & Empirical Validation
 
-Never assume an idea is valid based on intuition alone. Maintain evidence in `products/<name>/evidence/`:
+Maintain discovery evidence in `products/<name>/evidence/`:
 * **`evidence/interviews/`**: Discovery call notes with pain scoring (1-10) and commitment signals (Time, Access, Budget).
 * **`evidence/research/`**: Competitor matrices and pricing benchmarks.
-* **`evidence/benchmarks/`**: P95 latency, token usage, and unit COGS.
-* **`evidence/verifications/`**: Proof-of-concept run reports and acceptance criteria logs.
 
 ---
 
 ## 🛠️ CLI Commands
-* `pnpm new-product NAME=<name>`: Scaffolds a new product folder with the 6 documents and evidence subfolders.
+* `pnpm new-product NAME=<name>`: Scaffolds a new product folder with the 6 documents and evidence subfolders (`interviews/` & `research/`).
 * `pnpm check-product NAME=<name>`: Validates consistency and ensures zero unfilled placeholders.
