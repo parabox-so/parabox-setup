@@ -1,65 +1,73 @@
 # Parabox Setup & Spec Hub
 
-> **The Zero-Command Conversational Product Studio for Parabox.**  
+> **The Multi-Agent Autonomous Product Studio for Parabox.**  
 > Powered by the **"Six Documents Before Vibe Coding"** framework and the **Parabox Method**.
 
 ---
 
-## ⚡ The Vision: Just Describe Your Idea — The AI Does Everything
+## 👥 The Multi-Agent Product Team
 
-In Parabox, **you never have to run terminal commands or configure boilerplate**.
-
-You simply tell your AI assistant what you want to build in plain English (or paste rough notes). The AI Agent autonomously conducts competitor research, writes the 6 architectural specifications, scaffolds the backend, scaffolds the frontend, and runs tests.
+When you share an idea, your AI assistant acts as a **Lead Orchestrator** that spawns a **team of specialized subagents working together in parallel**:
 
 ```mermaid
 flowchart TD
-    A["👤 You type in chat:<br/><i>'I want to build an AI contract risk scanner called ContractGuard'</i>"] 
-    --> B["🧠 Agent triggers <code>skills/idea-to-product</code>"]
-    --> C["🤖 Agent writes the 6 Planning Documents in <code>products/contract-guard/</code>"]
-    --> D["🕵️ Agent conducts web competitor & pricing research"]
-    --> E["⚡ Agent builds Backend in <code>parabox-backend-starter</code>"]
-    --> F["🎨 Agent builds Frontend in <code>parabox-frontend-starter</code>"]
-    --> G["🎉 Agent reports: <i>'ContractGuard is fully built and tested!'</i>"]
+    Lead["👑 Team Lead (Orchestrator)<br/>Coordinates subagents & reports to you"]
+    
+    subgraph ParallelDiscovery["Phase 1: Parallel Strategy & Architecture"]
+        R["🕵️ Market Researcher<br/>• Competitor teardowns<br/>• Pricing models & G2 reviews"]
+        A["📐 Systems Architect<br/>• Writes 01-prd to 06-plan<br/>• Maps DB, API & Primitives"]
+    end
+
+    subgraph ParallelBuild["Phase 2: Parallel Full-Stack Build"]
+        B["🐍 Backend Engineer<br/>• Builds in parabox-backend-starter<br/>• FastAPI, DB models, MCP tools<br/>• Stripe @require_entitlement"]
+        F["⚛️ Frontend Engineer<br/>• Builds in parabox-frontend-starter<br/>• Next.js 15, Canvas, Realtime<br/>• Standard shadcn UI theme"]
+    end
+
+    subgraph Verification["Phase 3: QA & Verification"]
+        Q["🧪 QA & Verifier<br/>• Runs pytest & pnpm build<br/>• Validates Acceptance Criteria"]
+    end
+
+    Lead --> R & A
+    R & A --> B & F
+    B & F --> Q
+    Q --> Lead
 ```
 
 ---
 
 ## 🚀 How It Works in 1 Step:
 
-### You Just Chat with the Agent:
-> *"I want to build a tool called LinearEscalator that monitors urgent Linear tickets, generates an AI fix summary, and alerts Slack."*
+### You Just Say in Chat:
+> *"Build a tool called **LinearEscalator** that monitors urgent Linear tickets, generates an AI fix summary, and alerts Slack."*
 
-### The Agent Handles Everything Autonomously:
-1. **Initializes the spec:** Creates `products/linear-escalator/` and drafts `01-prd.md` & `04-design-brief.md`.
-2. **Researches the market:** Researches competitors and saves the teardown into `evidence/research/`.
-3. **Generates technical architecture:** Writes `02-trd.md`, `03-app-flow.md`, `05-backend-schema.md`, and `06-implementation-plan.md`.
-4. **Builds the Backend:** Creates `apps/linear-escalator` in `parabox-backend-starter` (FastAPI, SQLAlchemy, Clerk Auth, Stripe Tier Gating, MCP tools).
-5. **Builds the Frontend:** Creates `apps/linear-escalator` in `parabox-frontend-starter` (Next.js 15, Canvas block editor, SSE stream, shadcn styling).
-6. **Verifies:** Runs `pytest` and `pnpm build` to guarantee 0 errors.
+### The Multi-Agent Team Executes in Parallel:
+1. **`market-researcher`:** Researches competitors and logs findings in `evidence/research/`.
+2. **`systems-architect`:** Writes all 6 planning documents in `products/linear-escalator/`.
+3. **`backend-builder`:** Scaffolds and writes the backend code in `parabox-backend-starter` (FastAPI, SQLAlchemy, Clerk Auth, Stripe, MCP tools).
+4. **`frontend-builder`:** Scaffolds and writes the frontend in `parabox-frontend-starter` (Next.js 15, Canvas blocks, Realtime streaming, shadcn UI).
+5. **`qa-verifier`:** Runs `pytest` and `pnpm build` to guarantee 100% passing tests.
 
 ---
 
-## 📂 Repository Structure
+## 📂 Repository Layout
 
 ```
 parabox-setup/
 ├── products/                              # 📂 Product Portfolios
-│   ├── linear-escalator/                  # Reference example product
-│   │   ├── 01-prd.md                      # 1. Product pitch & problem
-│   │   ├── 02-trd.md                      # 2. Technical primitives mapping
-│   │   ├── 03-app-flow.md                 # 3. Screens & user journeys
-│   │   ├── 04-design-brief.md             # 4. Visual vibe & shadcn styling
-│   │   ├── 05-backend-schema.md           # 5. DB models & tenant isolation
-│   │   ├── 06-implementation-plan.md     # 6. Milestone build sequence
-│   │   └── evidence/                      # 🧪 Market research & customer discovery
-│   │       ├── research/                  # Competitor teardowns & market gaps
-│   │       └── interviews/                # Customer discovery call transcripts
-│   │
-│   └── _template/                         # Copyable starter template
+│   └── linear-escalator/                  # Reference example product
+│       ├── 01-prd.md                      # 1. Product pitch & problem
+│       ├── 02-trd.md                      # 2. Technical primitives mapping
+│       ├── 03-app-flow.md                 # 3. Screens & user journeys
+│       ├── 04-design-brief.md             # 4. Visual vibe & shadcn styling
+│       ├── 05-backend-schema.md           # 5. DB models & tenant isolation
+│       ├── 06-implementation-plan.md     # 6. Milestone build sequence
+│       └── evidence/                      # 🧪 Market research & discovery
+│           ├── research/                  # Competitor teardowns & pricing
+│           └── interviews/                # Customer discovery notes
 │
-├── skills/                                # 🧠 AI Autopilot & Architect Skills
-│   ├── idea-to-product/SKILL.md           # 🚀 Master zero-command conversational builder
-│   ├── product-autopilot/SKILL.md         # End-to-end autonomous builder
+├── skills/                                # 🧠 Autonomous Team Skills
+│   ├── idea-to-product/SKILL.md           # 🚀 Multi-agent team builder
+│   ├── product-autopilot/SKILL.md         # Full autonomous runner
 │   ├── interview-to-six-docs/SKILL.md     # Interactive discovery interviewer
 │   ├── consistency-checker/SKILL.md       # Flags contradictions across docs
 │   ├── evidence-collector/SKILL.md        # Formats research & interview notes
@@ -71,6 +79,6 @@ parabox-setup/
 ---
 
 ## 🏛️ Connected Parabox Repositories
-* 🎯 **Product Specs & Discovery:** [`parabox-setup`](https://github.com/parabox-so/parabox-setup) *(You are here)*
+* 🎯 **Product Specs & Team Studio:** [`parabox-setup`](https://github.com/parabox-so/parabox-setup) *(You are here)*
 * 🐍 **Backend Primitives:** [`parabox-backend-starter`](https://github.com/parabox-so/parabox-backend-starter)
 * ⚛️ **Frontend Primitives:** [`parabox-frontend-starter`](https://github.com/parabox-so/parabox-frontend-starter)
