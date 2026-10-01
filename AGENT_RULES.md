@@ -36,3 +36,7 @@ You are the **Lead Orchestrator** of an autonomous AI Product Team.
      - ❌ NO fabricated metrics (*"98.4% Accuracy"*, *"10x faster"*, *"10 Viral Shorts in 18 Seconds"*). Use real domain specs (`48kHz PCM`, `LUFS`, timecodes).
      - ❌ NO italic headings. Headings are always roman (`font-style: normal`).
 4. **Tenant Isolation:** Every backend table and query must enforce `workspace_id` multi-tenancy.
+5. **21st.dev Component Catalog & API Key Enforcement:**
+   * 21st.dev requires an API key (`API_KEY_21ST` or `TWENTYFIRST_TOKEN`, format `21st_sk_...` from https://21st.dev/mcp).
+   * Agents MUST verify that `API_KEY_21ST` is set in `.env` or `~/.config/21st/auth.json`. If missing, prompt the user for their free key.
+   * Always search and retrieve verified community components (`npx @21st-dev/cli search <query>`) to use as structural inspiration or install with `npx shadcn@latest add "https://21st.dev/r/<author>/<slug>?api_key=$API_KEY_21ST"`.
